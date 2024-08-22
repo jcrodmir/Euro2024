@@ -1,33 +1,22 @@
-package com.Euro2024.models;
-
-import jakarta.persistence.*;
+package com.Euro2024.dto;
+import com.Euro2024.models.PlayerEntity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Builder
-public class PlayerEntity {
-    //Create a Enum for the player position
-
-    public enum  Position{
-        Portero,
-        Defensa,
-        Mediocampista,
-        Delantero
-
-    }
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class PlayerDto {
     private int id;
     private String name;
     private int dorsal;
     @Enumerated(EnumType.STRING)
-    private Position position;
+    private PlayerEntity.Position position;
     private int goals;
     private int yellowCard;
     private int redCard;
@@ -36,10 +25,4 @@ public class PlayerEntity {
     private int ballsRecovered;
     private int minutesPlayed;
     private int MatchesPlayed;
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="team_id")
-    private TeamEntity team;
-
 }
