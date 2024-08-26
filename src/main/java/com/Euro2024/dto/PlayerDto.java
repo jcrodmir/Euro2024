@@ -25,4 +25,5 @@ public class PlayerDto {
     private int ballsRecovered;
     private int minutesPlayed;
     private int MatchesPlayed;
+    private int teamId;
 }
