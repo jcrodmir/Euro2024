@@ -2,6 +2,7 @@ package com.Euro2024.controller;
 
 import com.Euro2024.dto.PlayerDto;
 import com.Euro2024.dto.GenericResponse;
+import com.Euro2024.models.PlayerEntity;
 import com.Euro2024.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,11 +27,137 @@ public class PlayerController {
         return new ResponseEntity<GenericResponse<PlayerDto>>(playerService.getAllPlayer(pageNo,pageSize),HttpStatus.OK);
     }
 
-    @GetMapping("player/{id}")
+    @GetMapping("player/id/{id}")
     public ResponseEntity<PlayerDto> playerDetail(@PathVariable int id){
         return ResponseEntity.ok(playerService.getPlayerById(id));
 
     }
+    @GetMapping("player/name")
+    public ResponseEntity<PlayerDto> playerName(@RequestParam(value = "name", defaultValue = "unknown",required = false) String name){
+        return ResponseEntity.ok(playerService.getPlayerByName(name));
+
+    }
+    @GetMapping("player/goal")
+    public ResponseEntity<List<PlayerDto>> playerGoal(@RequestParam(value = "number", defaultValue = "0" ,required = false) int number){
+
+        return ResponseEntity.ok(playerService.getPlayerNumberByGoals(number));
+
+    }
+    @GetMapping("player/goals")
+    public ResponseEntity<List<PlayerDto>> playerGoals(){
+
+        return ResponseEntity.ok(playerService.getPlayerByGoals());
+
+    }
+    @GetMapping("player/yellowcard")
+    public ResponseEntity<List<PlayerDto>> playerYellow(@RequestParam(value = "number", defaultValue = "0" ,required = false) int number){
+
+        return ResponseEntity.ok(playerService.getPlayerNumberYellowCards(number));
+
+    }
+    @GetMapping("player/yellowcards")
+    public ResponseEntity<List<PlayerDto>> playerYellowCard(){
+
+        return ResponseEntity.ok(playerService.getPlayerByYellowCard());
+
+    }
+
+    @GetMapping("player/redcard")
+    public ResponseEntity<List<PlayerDto>> playerRed(@RequestParam(value = "number", defaultValue = "0" ,required = false) int number){
+
+        return ResponseEntity.ok(playerService.getPlayerNumberRedCards(number));
+
+    }
+    @GetMapping("player/redcards")
+    public ResponseEntity<List<PlayerDto>> playerRedCard(){
+
+        return ResponseEntity.ok(playerService.getPlayerByRedCard());
+
+    }
+    @GetMapping("player/save")
+    public ResponseEntity<List<PlayerDto>> playerGoalKeeper(@RequestParam(value = "number", defaultValue = "0" ,required = false) int number){
+
+        return ResponseEntity.ok(playerService.getPlayerNumberGoalKeeperSaves(number));
+
+    }
+    @GetMapping("player/saves")
+    public ResponseEntity<List<PlayerDto>> playerGoalKeepers(){
+
+        return ResponseEntity.ok(playerService.getPlayerByGoalKeeperSaves());
+
+    }
+    @GetMapping("player/assist")
+    public ResponseEntity<List<PlayerDto>> playerAssist(@RequestParam(value = "number", defaultValue = "0" ,required = false) int number){
+
+        return ResponseEntity.ok(playerService.getPlayerNumberAssists(number));
+
+    }
+    @GetMapping("player/assists")
+    public ResponseEntity<List<PlayerDto>> playerAssists(){
+
+        return ResponseEntity.ok(playerService.getPlayerByAssists());
+
+    }
+    @GetMapping("player/recover")
+    public ResponseEntity<List<PlayerDto>> playerRecovered(@RequestParam(value = "number", defaultValue = "0" ,required = false) int number){
+
+        return ResponseEntity.ok(playerService.getPlayerNumberRecovered(number));
+
+    }
+    @GetMapping("player/recovered")
+    public ResponseEntity<List<PlayerDto>> playerrecovered(){
+
+        return ResponseEntity.ok(playerService.getPlayerByRecovered());
+
+    }
+    @GetMapping("player/dorsal")
+    public ResponseEntity<List<PlayerDto>> playerDorsal(@RequestParam(value = "number", defaultValue = "0" ,required = false) int number){
+
+        return ResponseEntity.ok(playerService.getPlayerNumberByDorsal(number));
+
+    }
+    @GetMapping("player/dorsals")
+    public ResponseEntity<List<PlayerDto>> playerDorsals(){
+
+        return ResponseEntity.ok(playerService.getPlayerByDorsal());
+
+    }
+
+    @GetMapping("player/minute")
+    public ResponseEntity<List<PlayerDto>> playerMinutes(@RequestParam(value = "number", defaultValue = "0" ,required = false) int number){
+
+        return ResponseEntity.ok(playerService.getPlayerNumberMinutes(number));
+
+    }
+    @GetMapping("player/minutes")
+    public ResponseEntity<List<PlayerDto>> playerMinutes(){
+
+        return ResponseEntity.ok(playerService.getPlayerByMinutes());
+
+    }
+    @GetMapping("player/match")
+    public ResponseEntity<List<PlayerDto>> playerMatch(@RequestParam(value = "number", defaultValue = "0" ,required = false) int number){
+
+        return ResponseEntity.ok(playerService.getPlayerNumberMatches(number));
+
+    }
+    @GetMapping("player/matches")
+    public ResponseEntity<List<PlayerDto>> playerMatches(){
+
+        return ResponseEntity.ok(playerService.getPlayerByMatches());
+
+    }
+    @GetMapping("player/position")
+    public ResponseEntity<?> playerPosition(@RequestParam(value = "position", defaultValue = "0" ,required = false) PlayerEntity.Position position){
+        List<PlayerDto> player = playerService.getPlayerByPosition(position);
+        if(player.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No players found for the given position");
+        }
+        return ResponseEntity.ok(playerService.getPlayerByPosition(position));
+
+    }
+
+
     @GetMapping("player/team/{teamId}")
     public ResponseEntity<List<PlayerDto>> teamPlayersDetail(@PathVariable int teamId){
         return ResponseEntity.ok(playerService.getAllPlayersFromTeam(teamId));

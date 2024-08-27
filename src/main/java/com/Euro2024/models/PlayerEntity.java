@@ -22,7 +22,7 @@ public class PlayerEntity {
 
     }
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private int dorsal;
@@ -35,7 +35,7 @@ public class PlayerEntity {
     private int goalkeeperSaves;
     private int ballsRecovered;
     private int minutesPlayed;
-    private int MatchesPlayed;
+    private int matchesPlayed;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
