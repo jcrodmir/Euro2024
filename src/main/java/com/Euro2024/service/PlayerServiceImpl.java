@@ -78,6 +78,136 @@ public class PlayerServiceImpl implements PlayerService{
     }
 
     @Override
+    public PlayerDto getPlayerByName(String name) {
+        PlayerEntity player= playerRepository.findByName(name);
+
+        return getPlayerDto(player);
+    }
+    public List<PlayerDto> getPlayerNumberByDorsal(int number) {
+        List<PlayerEntity> player= playerRepository.findByDorsal(number);
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PlayerDto> getPlayerNumberByGoals(int goals) {
+        List<PlayerEntity> player= playerRepository.findByGoals(goals);
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PlayerDto> getPlayerNumberYellowCards(int cards) {
+        List<PlayerEntity> player= playerRepository.findByYellowCard(cards);
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+    @Override
+    public List<PlayerDto> getPlayerNumberRedCards(int cards) {
+        List<PlayerEntity> player= playerRepository.findByRedCard(cards);
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PlayerDto> getPlayerNumberGoalKeeperSaves(int saves) {
+        List<PlayerEntity> player= playerRepository.findByGoalkeeperSaves(saves);
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PlayerDto> getPlayerNumberAssists(int assits) {
+        List<PlayerEntity> player= playerRepository.findByAssists(assits);
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PlayerDto> getPlayerNumberRecovered(int recovered) {
+        List<PlayerEntity> player= playerRepository.findByBallsRecovered(recovered);
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PlayerDto> getPlayerNumberMinutes(int minutes) {
+        List<PlayerEntity> player= playerRepository.findByMinutesPlayed(minutes);
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PlayerDto> getPlayerNumberMatches(int matches) {
+        List<PlayerEntity> player= playerRepository.findByMatchesPlayed(matches);
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PlayerDto> getPlayerByPosition(PlayerEntity.Position position) {
+        List<PlayerEntity> player= playerRepository.findByPosition(position);
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+
+
+    /************************ORDER BY *******************************************/
+    @Override
+    public List<PlayerDto> getPlayerByRedCard() {
+        List<PlayerEntity> player= playerRepository.findByOrderByRedCardDesc();
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+    @Override
+    public List<PlayerDto> getPlayerByYellowCard() {
+        List<PlayerEntity> player= playerRepository.findByOrderByYellowCardDesc();
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+    @Override
+    public List<PlayerDto> getPlayerByDorsal() {
+        List<PlayerEntity> player= playerRepository.findByOrderByDorsal();
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+    @Override
+    public List<PlayerDto> getPlayerByGoals() {
+        List<PlayerEntity> player= playerRepository.findByOrderByGoalsDesc();
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+    @Override
+    public List<PlayerDto> getPlayerByGoalKeeperSaves() {
+        List<PlayerEntity> player= playerRepository.findByOrderByGoalkeeperSavesDesc();
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+    @Override
+    public List<PlayerDto> getPlayerByAssists() {
+        List<PlayerEntity> player= playerRepository.findByOrderByAssistsDesc();
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+    @Override
+    public List<PlayerDto> getPlayerByRecovered() {
+        List<PlayerEntity> player= playerRepository.findByOrderByBallsRecoveredDesc();
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+    @Override
+    public List<PlayerDto> getPlayerByMinutes() {
+        List<PlayerEntity> player= playerRepository.findByOrderByMinutesPlayedDesc();
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+    @Override
+    public List<PlayerDto> getPlayerByMatches() {
+        List<PlayerEntity> player= playerRepository.findByOrderByMatchesPlayedDesc();
+
+        return player.stream().map(this::getPlayerDto).collect(Collectors.toList());
+    }
+    /**********************UPDATED***********************************************/
+    @Override
     public PlayerDto updatePlayer(PlayerDto playerDto ,int id) {
         PlayerEntity player= playerRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Player not found with id: " + id));//.orElseThrow(() -> new PokemonNotFoundException("Pokemon not found"));
         player.setName(playerDto.getName());
@@ -98,6 +228,7 @@ public class PlayerServiceImpl implements PlayerService{
         return getPlayerDto(updatedPlayer);
     }
 
+    /**********************Deleted***********************************************/
     @Override
     public void deletePlayer(int id) {
         PlayerEntity player= playerRepository.findById(id).orElseThrow();//.orElseThrow(() -> new PokemonNotFoundException("Pokemon not found"));

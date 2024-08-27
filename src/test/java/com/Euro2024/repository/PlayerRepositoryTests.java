@@ -33,7 +33,7 @@ public class PlayerRepositoryTests {
                 .goalkeeperSaves(0)
                 .ballsRecovered(15)
                 .minutesPlayed(3000)
-                .MatchesPlayed(30)
+                .matchesPlayed(30)
                 .build();
 
         // Guardar el jugador en la base de datos
@@ -73,7 +73,7 @@ public class PlayerRepositoryTests {
                 .goalkeeperSaves(0)
                 .ballsRecovered(15)
                 .minutesPlayed(3000)
-                .MatchesPlayed(30)
+                .matchesPlayed(30)
                 .build();
         playerRepository.save(player);
 
@@ -95,7 +95,7 @@ public class PlayerRepositoryTests {
                 .goalkeeperSaves(0)
                 .ballsRecovered(15)
                 .minutesPlayed(3000)
-                .MatchesPlayed(30)
+                .matchesPlayed(30)
                 .build();
         PlayerEntity player2 = PlayerEntity.builder()
                 .name("Cristiano")
@@ -108,7 +108,7 @@ public class PlayerRepositoryTests {
                 .goalkeeperSaves(0)
                 .ballsRecovered(15)
                 .minutesPlayed(3000)
-                .MatchesPlayed(30)
+                .matchesPlayed(30)
                 .build();
 
         playerRepository.save(player);
@@ -134,7 +134,7 @@ public class PlayerRepositoryTests {
                 .goalkeeperSaves(0)
                 .ballsRecovered(15)
                 .minutesPlayed(3000)
-                .MatchesPlayed(30)
+                .matchesPlayed(30)
                 .build();
         playerRepository.save(player);
 
@@ -167,7 +167,7 @@ public class PlayerRepositoryTests {
                 .goalkeeperSaves(0)
                 .ballsRecovered(15)
                 .minutesPlayed(3000)
-                .MatchesPlayed(30)
+                .matchesPlayed(30)
                 .build();
         playerRepository.save(player);
 
