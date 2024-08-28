@@ -1,10 +1,9 @@
 package com.Euro2024.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
+
 import java.util.List;
 
 @Data
@@ -12,6 +11,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TeamDto {
+    public TeamDto(String coach) {
+        this.coach = coach;
+    }
+
     private int id;
     private String country;
     private String federation;

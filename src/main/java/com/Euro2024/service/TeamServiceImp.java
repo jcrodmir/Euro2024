@@ -14,6 +14,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -61,6 +62,72 @@ public class TeamServiceImp implements TeamService {
         TeamEntity player= teamRepository.findById(id).orElseThrow();
 
         return getTeamDto(player);
+    }
+
+    @Override
+    public List<PlayerDto> getPlayersByTeamId(int id) {
+        TeamEntity player= teamRepository.findById(id).orElseThrow();
+        List<PlayerDto> playersList= new ArrayList<>();
+        if (player.getPlayers() != null) {
+            playersList = player.getPlayers().stream()
+                    .map(this::getPlayerDto)  // Convertir cada PlayerEntity a PlayerDto
+                    .collect(Collectors.toList());
+
+        }
+        return playersList;
+    }
+
+    @Override
+    public TeamDto getByCountry(String country) {
+        TeamEntity player= teamRepository.findByCountry(country);
+
+        return getTeamDto(player);
+    }
+
+    @Override
+    public TeamDto getByFederation(String federation) {
+        TeamEntity player= teamRepository.findByFederation(federation);
+
+        return getTeamDto(player);
+    }
+
+    @Override
+    public TeamDto getByCoach(String coach) {
+        TeamEntity player= teamRepository.findByCoach(coach);
+
+        return getTeamDto(player);
+    }
+
+    @Override
+    public TeamDto getByChampionships(int champions) {
+        TeamEntity player= teamRepository.findByChampionships(champions);
+
+        return getTeamDto(player);
+    }
+
+    @Override
+    public TeamDto getByFoundation(int year) {
+        TeamEntity player= teamRepository.findByFoundation(year);
+
+        return getTeamDto(player);
+    }
+
+    @Override
+    public String getCoachByCountry(String country) {
+        TeamEntity player= teamRepository.findByCountry(country);
+        return player.getCoach();
+    }
+
+    @Override
+    public String getFederationByCountry(String country) {
+        TeamEntity player= teamRepository.findByCountry(country);
+        return player.getFederation();
+    }
+
+    @Override
+    public int getChampionshipsByCountry(String country) {
+        TeamEntity player= teamRepository.findByCountry(country);
+        return player.getChampionships();
     }
 
     @Override
