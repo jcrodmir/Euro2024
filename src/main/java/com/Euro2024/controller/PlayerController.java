@@ -20,8 +20,8 @@ import java.util.List;
 public class PlayerController {
     private PlayerService playerService;
     private final Bucket bucket;
-    private final int tokens=10;
-    private final int capacity=10;
+    private final int tokens=1;
+    private final int capacity=20;
 
 
 
@@ -39,9 +39,7 @@ public class PlayerController {
         if (!bucket.tryConsume(tokens)) {
             return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).build();
         }
-
-
-        return new ResponseEntity<GenericResponse<PlayerDto>>(playerService.getAllPlayer(pageNo,pageSize),HttpStatus.OK);
+         return new ResponseEntity<GenericResponse<PlayerDto>>(playerService.getAllPlayer(pageNo,pageSize),HttpStatus.OK);
     }
 
     @GetMapping("player/id/{id}")
@@ -53,6 +51,7 @@ public class PlayerController {
         return ResponseEntity.ok(playerService.getPlayerById(id));
 
     }
+
     @GetMapping("player/name")
     public ResponseEntity<PlayerDto> playerName(@RequestParam(value = "name", defaultValue = "unknown",required = false) String name){
         if (!bucket.tryConsume(tokens)) {
