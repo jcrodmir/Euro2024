@@ -1,5 +1,5 @@
 # Etapa 1: Compilar el JAR
-FROM maven:3.8.6-eclipse-temurin-17 AS build
+FROM maven:3.8.6-eclipse-temurin-17
 WORKDIR /app
 COPY pom.xml ./
 COPY src ./src
