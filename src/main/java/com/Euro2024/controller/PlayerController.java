@@ -21,7 +21,7 @@ public class PlayerController {
     private PlayerService playerService;
     private final Bucket bucket;
     private final int tokens=1;
-    private final int capacity=20;
+    private final int capacity=200;
 
 
 
