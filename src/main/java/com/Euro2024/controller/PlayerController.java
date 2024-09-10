@@ -231,15 +231,15 @@ public class PlayerController {
     }
 
     //RequestBody
-    @PostMapping("player/{id}/create")
+    @PostMapping("player/{teamId}/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public  ResponseEntity<PlayerDto> createPlayer(@RequestBody PlayerDto player,@PathVariable("id") int teamId){
+    public  ResponseEntity<PlayerDto> createPlayer(@RequestBody PlayerDto player,@PathVariable("teamId") int teamId){
 
         return new ResponseEntity<>(playerService.createPlayer(player,teamId), HttpStatus.CREATED);
     }
 
 
-    @PutMapping("player/update/{id}")
+    @PutMapping("player/{id}/update")
     public  ResponseEntity<PlayerDto> updatePlayer(@RequestBody PlayerDto player,@PathVariable("id") int playerId){
 
         PlayerDto response= playerService.updatePlayer(player,playerId);

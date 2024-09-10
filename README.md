@@ -16,61 +16,75 @@ Version 1.0.0:
 
 /********************* Players *********************/
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player?pageNo=1&pageSize=10
-
 Call for all the players
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/id/{id}
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player?pageNo=1&pageSize=10
 
 Call  the player by ID.
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/name?name
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/id/{id}
+
 
 Call  the player by Name.
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/goal?number
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/name?name
+
 
 Call  the player by Goal.
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/yellowcard?number
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/goal?number
+
 
 Call  the player by Yellow cards.
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/redcard?number
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/yellowcard?number
+
 
 Call  the player by Red card.
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/save?number
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/redcard?number
+
 
 Call  the player by Goalkeeper saves
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/assist?number
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/save?number
+
 
 Call  the player by Assist.
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/recover?number
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/assist?number
+
 
 Call  the player by Ball Recover .
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/dorsal?number
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/recover?number
+
 
 Call  the player by Dorsal .
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/minute?number
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/dorsal?number
+
 
 Call  the player by Minutes .
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/match?number
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/minute?number
+
 
 Call  the player by Matches .
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/position?position
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/match?number
+
 
 Call  the player by Position("Portero","Defensa","Mediocampistam,"Delantero") .
 
-![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/team/{teamId}
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/position?position
+
 
 Call  the player by Team Id .
+
+![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/player/team/{teamId}
+
+
 
 
 Call all the players by properties order by descendant .
@@ -130,6 +144,23 @@ Call  the team by Championships.
 ![Get](./assets/get.png) https://euro2024-naqw.onrender.com/v1/team/{country}/federation
 
 Call the properties by country
+
+/*********** Only with Authorization ****************/
+
+
+Call to create team and player with Team Id
+![Post](./assets/post.png)   https://euro2024-naqw.onrender.com/v1/player/{teamId}/create
+![Post](./assets/post.png)   https://euro2024-naqw.onrender.com/v1/team/create
+
+Call to delete team and player
+
+![Delete](./assets/post.png) https://euro2024-naqw.onrender.com/v1/player/{id}/delete
+![Delete](./assets/post.png) https://euro2024-naqw.onrender.com/v1/team/{id}/delete
+
+Call to update team and player
+
+![Put](./assets/post.png)    https://euro2024-naqw.onrender.com/v1/player/{id}/update
+![Put](./assets/post.png)    https://euro2024-naqw.onrender.com/v1/team/{id}/update
 
 
 
