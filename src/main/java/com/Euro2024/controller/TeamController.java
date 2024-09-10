@@ -43,7 +43,7 @@ public class TeamController {
         return new ResponseEntity<GenericResponse<TeamDto>>(teamService.getAllTeam(pageNo,pageSize), HttpStatus.OK);
     }
 
-    @GetMapping("team/{id}")
+    @GetMapping("team/id/{id}")
     public ResponseEntity<TeamDto> teamDetail(@PathVariable int id){
         if (!bucket.tryConsume(tokens)) {
             return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).build();
