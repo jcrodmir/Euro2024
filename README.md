@@ -151,16 +151,19 @@ Call the properties by country
 Call to create team and player with Team Id
 
 ![Post](./assets/post.png)   https://euro2024-naqw.onrender.com/v1/player/{teamId}/create
+
 ![Post](./assets/post.png)   https://euro2024-naqw.onrender.com/v1/team/create
 
 Call to delete team and player
 
 ![Delete](./assets/post.png) https://euro2024-naqw.onrender.com/v1/player/{id}/delete
+
 ![Delete](./assets/post.png) https://euro2024-naqw.onrender.com/v1/team/{id}/delete
 
 Call to update team and player
 
 ![Put](./assets/post.png)    https://euro2024-naqw.onrender.com/v1/player/{id}/update
+
 ![Put](./assets/post.png)    https://euro2024-naqw.onrender.com/v1/team/{id}/update
 
 
