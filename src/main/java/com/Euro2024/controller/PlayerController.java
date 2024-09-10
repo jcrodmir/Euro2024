@@ -16,7 +16,7 @@ import java.time.Duration;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/")//Structure to call requests.
+@RequestMapping("/v1/")//Structure to call requests.
 public class PlayerController {
     private PlayerService playerService;
     private final Bucket bucket;

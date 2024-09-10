@@ -17,12 +17,12 @@ import java.time.Duration;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/v1/")
 public class TeamController {
 
     private TeamService teamService;
     private final Bucket bucket;
-    private final int tokens=10;
+    private final int tokens=1;
     private final int capacity=200;
 
     @Autowired
