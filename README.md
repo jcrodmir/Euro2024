@@ -149,6 +149,7 @@ Call the properties by country
 
 
 Call to create team and player with Team Id
+
 ![Post](./assets/post.png)   https://euro2024-naqw.onrender.com/v1/player/{teamId}/create
 ![Post](./assets/post.png)   https://euro2024-naqw.onrender.com/v1/team/create
 
