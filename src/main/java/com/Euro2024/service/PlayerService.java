@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface PlayerService {
     PlayerDto createPlayer(PlayerDto playerDto,int teamId);
+    List<PlayerDto> createPlayers(List<PlayerDto> playerDto,int teamId);
     //parameters is for the pagination
     GenericResponse<PlayerDto> getAllPlayer(int page, int pageSize);
     List<PlayerDto> getAllPlayersFromTeam(int teamId);

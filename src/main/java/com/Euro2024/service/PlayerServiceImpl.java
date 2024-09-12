@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,6 +38,21 @@ public class PlayerServiceImpl implements PlayerService{
         PlayerEntity newPlayer= playerRepository.save(playerEntity);
 
         return getPlayerDto(newPlayer);
+    }
+
+    @Override
+    public List<PlayerDto> createPlayers(List<PlayerDto> listaPlayerDto,int teamId) {
+        List<PlayerDto> listaRetorno=new ArrayList<>();
+        for(PlayerDto player :listaPlayerDto ){
+            PlayerEntity playerEntity = getPlayerEntity(player);
+            TeamEntity team=  teamRepository.findById(teamId).orElseThrow(() -> new EntityNotFoundException("No se encontro el equipo"));
+            playerEntity.setTeam(team);
+
+            PlayerEntity newPlayer= playerRepository.save(playerEntity);
+            listaRetorno.add(getPlayerDto(newPlayer));
+        }
+
+        return listaRetorno;
     }
 
 
