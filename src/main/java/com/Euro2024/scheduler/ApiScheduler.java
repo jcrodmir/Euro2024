@@ -9,8 +9,8 @@ public class ApiScheduler {
     private final RestTemplate restTemplate = new RestTemplate();
 
     // Este método se ejecutará cada 15 minutos
-    @Scheduled(fixedRate = 300000)
-    public void callApi() {
+    //@Scheduled(fixedRate = 300000)
+    /*public void callApi() {
         try{
 
             String url = "https://euro2024-naqw.onrender.com/v1/player?pageNo=1&pageSize=10";
@@ -18,5 +18,5 @@ public class ApiScheduler {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
-    }
+    }*/
 }
